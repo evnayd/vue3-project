@@ -28,6 +28,21 @@ main {
   margin-right: 10px;
   margin-bottom: 10px;
   cursor: pointer;
+  position: relative;
+}
+
+.item__close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 15px;
+  height: 15px;
+  outline: none;
+  border: none;
+  color: red;
+  background-color: transparent;
+  border: 1px solid red;
+  padding: 0;
 }
 
 .box__list {

@@ -85,6 +85,15 @@ const store = createStore({
     selectClothes(state, item) {
       const { name, id } = item
       state.selectedClothes = { name, id }
+    },
+    deleteItem(state, item) {
+      state.selectedUsersItems = state.selectedUsersItems.filter((itm) => itm.id !== item.id)
+    },
+    deleteClothes(state) {
+      state.selectedClothes = {
+        name: '',
+        id: ''
+      }
     }
   }
 })
