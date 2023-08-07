@@ -3,7 +3,10 @@ import { createStore } from 'vuex'
 const store = createStore({
   state() {
     return {
-      chosenClothes: [],
+      selectedClothes: {
+        name: '',
+        id: ''
+      },
       selectedUsersItems: [],
       usersStuff: [
         {
@@ -76,11 +79,12 @@ const store = createStore({
     }
   },
   mutations: {
-    increment(state) {
-      state.count++
-    },
     addItem(state, item) {
       state.selectedUsersItems.push(item)
+    },
+    selectClothes(state, item) {
+      const { name, id } = item
+      state.selectedClothes = { name, id }
     }
   }
 })

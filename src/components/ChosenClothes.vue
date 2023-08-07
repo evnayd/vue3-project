@@ -1,15 +1,24 @@
 <template>
   <div class="box">
     <h1 class="box__title">Chosen clothes:</h1>
-    <!---<div v-if="chosenClothes.name" class="item chosen-item">
-      <h2>{{ chosenClothes.name }}</h2>
-    </div>-->
+    <div v-if="selectedClothes.name" class="item chosen-item">
+      <h2>{{ selectedClothes.name }}</h2>
+    </div>
   </div>
 </template>
 
 <script>
+import { computed } from 'vue'
+import { useStore } from 'vuex'
 export default {
-  props: ['chosenClothes']
+  setup() {
+    const store = useStore()
+    const selectedClothes = computed(() => store.state.selectedClothes)
+
+    return {
+      selectedClothes
+    }
+  }
 }
 </script>
 
