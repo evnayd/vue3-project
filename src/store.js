@@ -4,7 +4,7 @@ const store = createStore({
   state() {
     return {
       chosenClothes: [],
-      chosenUsersStuff: [],
+      selectedUsersItems: [],
       usersStuff: [
         {
           id: 1,
@@ -78,6 +78,9 @@ const store = createStore({
   mutations: {
     increment(state) {
       state.count++
+    },
+    addItem(state, item) {
+      state.selectedUsersItems.push(item)
     }
   }
 })
