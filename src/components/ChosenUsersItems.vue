@@ -7,6 +7,7 @@
         <h2>{{ item.name }}</h2>
       </li>
     </ul>
+    <div v-if="hasSelectedItems">Selected items quantity: {{ quantity }}</div>
   </div>
 </template>
 
@@ -17,13 +18,17 @@ export default {
   setup() {
     const store = useStore()
     const selectedUsersItems = computed(() => store.state.selectedUsersItems)
+    const quantity = computed(() => store.state.count)
+    const hasSelectedItems = computed(() => store.state.selectedUsersItems.length)
     const deleteItem = (item) => {
       store.commit('deleteItem', item)
-      //console.log()
+      store.dispatch('deleteCount')
     }
     return {
       selectedUsersItems,
-      deleteItem
+      deleteItem,
+      quantity,
+      hasSelectedItems
     }
   }
 }

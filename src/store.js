@@ -3,6 +3,7 @@ import { createStore } from 'vuex'
 const store = createStore({
   state() {
     return {
+      count: 0,
       selectedClothes: {
         name: '',
         id: ''
@@ -94,6 +95,24 @@ const store = createStore({
         name: '',
         id: ''
       }
+    },
+    incrementCount(state) {
+      state.count++
+    },
+    dectrementCount(state) {
+      state.count--
+    }
+  },
+  actions: {
+    addCount(context) {
+      setTimeout(() => {
+        context.commit('incrementCount')
+      }, 1000)
+    },
+    deleteCount(context) {
+      setTimeout(() => {
+        context.commit('dectrementCount')
+      }, 500)
     }
   }
 })

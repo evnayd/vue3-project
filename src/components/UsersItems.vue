@@ -22,6 +22,7 @@ export default {
     const addItem = (item) => {
       if (canAddItem.value && !isItemUnique(item)) {
         store.commit('addItem', item)
+        store.dispatch('addCount')
       }
     }
 
